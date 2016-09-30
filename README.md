@@ -1,5 +1,5 @@
-nRF51-DK + GMA303 example code
-=============================
+nRF51-DK + GMA303 Pedometer Demo
+================================
 
 Requirements
 -----------
