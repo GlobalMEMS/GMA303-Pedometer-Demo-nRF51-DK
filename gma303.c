@@ -300,7 +300,7 @@ s8 gma303_set_osm(GMA303_OSM_T ratio){
   u8Data[0] = 0x02;
   u8Data[1] = 0x00;
   u8Data[2] = 0x04;
-  u8Data[3] = 0x00;	
+  u8Data[3] = 0x00;
   s8Tmp = gma303_burst_write(GMA303_ACTR__REG, u8Data, 4);
   if(s8Tmp < 0){ //communication error
     comRslt = s8Tmp;
@@ -569,9 +569,9 @@ s8 _gma303_read_data(raw_data_xyzt_t* pxyzt, u8 dLen){
   s8 comRslt = -1;
   u8 u8Data[11];
   s16 s16Tmp, i;
-	
+
   do{
-		
+	
     if(dLen == 3) //xyz
       comRslt = gma303_burst_read(GMA303_STADR__REG, u8Data, 9);
     else  //xyzt
@@ -579,7 +579,7 @@ s8 _gma303_read_data(raw_data_xyzt_t* pxyzt, u8 dLen){
 		
     if(comRslt < 0) goto EXIT;
 		
-  } while(GMA303_GET_BITSLICE(u8Data[2], GMA303_DRDY) == 0);//Check DRDY bit
+  } while(0 && (GMA303_GET_BITSLICE(u8Data[2], GMA303_DRDY) == 0));//No Check DRDY bit
 	
 	
   for(i = 0; i < dLen; ++i){
